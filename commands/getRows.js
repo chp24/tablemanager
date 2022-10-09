@@ -9,10 +9,14 @@ module.exports = function(tableName, options) {
 }
 
 function runQuery(query){
+    //connect to db
     db.serialize(() => {
+        //running query and executing function for each row
         db.each(query, (err, row) => {
             console.log(row);
+            //when no more rows, fire the below function
         }, ()=>{
+            console.log('done');
             db.close();
         })
     });
