@@ -13,5 +13,8 @@
     "@faker-js/faker": "^7.5.0",
     "commander": "^9.4.1",
     "sqlite3": "^5.1.2"
+  },
+  "bin": {
+    "sqlite3manager": "main.js"
   }
 }
