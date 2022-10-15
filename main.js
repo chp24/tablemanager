@@ -22,7 +22,7 @@ program
   .command('makeTable')
   .description('create a table with a predefined num of string columns labeled c1-cn')
   .argument('<tableName>', 'name of table')
-  .option('--columnCount', 'option for number of columns')
+  .option('--columnCount [columnCount]', 'option for number of columns')
   .action(maketable);
 
 program
@@ -37,7 +37,7 @@ program
   .command('addRow')
   .description('add a row')
   .argument('<tableName>', 'name of table')
-  .argument('<columnName>', 'name of column')
+  .option('--values [values]', 'name of values')
   .action(addRow);
 
 program
@@ -70,7 +70,7 @@ program
   .command('getRows')
   .description('display all rows of a table')
   .argument('<tableName>', 'name of table')
-  .option('--columnNames', 'comma separated list of columns, defaults to *')
+  .option('--columnNames [columnNames]', 'comma separated list of columns, defaults to *')
   .action(getRows);
 
 // start our cli tool and listen for commands

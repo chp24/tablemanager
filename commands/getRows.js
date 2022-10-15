@@ -2,10 +2,14 @@ const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./db/local_db');
 
 module.exports = async function(tableName, options) {
-    const columnNames = options.columnNames || "*";
+    let columnNames = "*"
+    if( typeof options.columnNames == "string" )
+    {
+        columnNames = options.columnNames;
+    }
     const query = `select ${columnNames} from ${tableName}`;
     const results = await runQuery(query);
-    console.log(results);
+    console.table(results);
 }
 
 function runQuery(query){
